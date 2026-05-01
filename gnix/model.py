@@ -1,8 +1,8 @@
 import requests
 import json
+from gnix.config import OLLAMA_BASE_URL, get_model
 
-OLLAMA_URL    = "http://localhost:11434/api/generate"
-DEFAULT_MODEL = "qwen2.5:0.5b"
+OLLAMA_URL = f"{OLLAMA_BASE_URL}/api/generate"
 
 
 
@@ -38,10 +38,10 @@ Output: ps aux --sort=-%mem | head -10"""
 
 
 
-def generate_command(instruction: str, shell: str) -> str:
+def generate_command(instruction: str, shell: str, model: str ) -> str:
     system_prompt = build_system_prompt(shell)
     payload = {
-        "model":  DEFAULT_MODEL,
+        "model":  get_model(),
         "system": system_prompt,
         "prompt": instruction,
         "stream": False,        
@@ -100,8 +100,7 @@ def clean_command(command: str) -> str:
     return command
 
 
-
-def check_model_available(model: str = DEFAULT_MODEL) -> bool:
+def check_model_available(model: str ) -> bool:
     try:
         response = requests.get(
             "http://localhost:11434/api/tags",

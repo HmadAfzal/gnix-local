@@ -117,23 +117,11 @@ DANGEROUS_PATTERNS = [
 
     # --- Dangerous curl/wget piped to shell ---
     (
-        "curl | bash",
+        "| bash",
         "This command downloads and executes a remote script which is a severe security risk."
     ),
     (
-        "curl | sh",
-        "This command downloads and executes a remote script which is a severe security risk."
-    ),
-    (
-        "wget | bash",
-        "This command downloads and executes a remote script which is a severe security risk."
-    ),
-    (
-        "wget -O- | bash",
-        "This command downloads and executes a remote script which is a severe security risk."
-    ),
-    (
-        "wget -O- | sh",
+        "| sh",
         "This command downloads and executes a remote script which is a severe security risk."
     ),
 ]
@@ -161,7 +149,7 @@ def get_severity(command: str) -> str:
     HIGH_PATTERNS = [
         "rm -rf *", "rm -rf .",
         "chmod -R 777", "chmod 777 /",
-        "curl | bash", "wget | bash",
+        "| bash", "| sh",
         "mv / /dev/null"
     ]
 

@@ -1,7 +1,7 @@
 import requests
+from gnix.config import OLLAMA_BASE_URL, get_model
 
-OLLAMA_URL    = "http://localhost:11434/api/generate"
-DEFAULT_MODEL = "qwen2.5:0.5b"
+OLLAMA_URL = f"{OLLAMA_BASE_URL}/api/generate"
 
 def build_brief_prompt(shell: str) -> str:
     return f"""You are a {shell} shell expert.
@@ -64,7 +64,7 @@ def explain_command(command: str, shell: str, detailed: bool = False) -> str:
         max_tokens    = 60    
 
     payload = {
-        "model":  DEFAULT_MODEL,
+        "model": get_model(),
         "system": system_prompt,
         "prompt": f"Command: {command}",
         "stream": False,
