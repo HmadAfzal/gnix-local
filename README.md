@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://gnix.com">
-    <img src="/assets/gnix-logo.png" alt="Gnix" width="200"/>
+    <img src="/assets/gnix-logo.png" alt="Gnix" width="200" style="border-radius: 12px;"/>
   </a>
 </p>
 
