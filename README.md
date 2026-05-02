@@ -1,5 +1,8 @@
-<img src="assets/gnix-logo.png" alt="logo" width="100%">
-
+<p align="center">
+  <a href="https://gnix.com">
+    <img src="/assets/gnix-logo.png" alt="Gnix" width="200"/>
+  </a>
+</p>
 
 # Gnix
 
