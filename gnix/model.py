@@ -85,11 +85,11 @@ def generate_command(instruction: str, shell: str, model: str ) -> str:
 
 
 def clean_command(command: str) -> str:
+    import re
+    match = re.search(r'```(?:bash|zsh|sh)?\n?(.*?)(?:\n?```|$)', command, re.DOTALL)
+    if match:
+        command = match.group(1).strip()
     command = command.replace("`", "")
-    command = command.replace("```bash", "")
-    command = command.replace("```zsh", "")
-    command = command.replace("```sh", "")
-    command = command.replace("```", "")
 
     if command.startswith("$ "):
         command = command[2:]
