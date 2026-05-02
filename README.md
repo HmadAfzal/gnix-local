@@ -1,8 +1,6 @@
-<p align="center">
-  <a href="https://gnix.com">
-    <img src="/assets/gnix-logo.png" alt="Gnix" width="200" style="border-radius: 12px;"/>
-  </a>
-</p>
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/HmadAfzal/gnix-local/main/assets/gnix-logo.png" width="120" style="border-radius: 16px"/>
 
 # Gnix
 
@@ -11,12 +9,15 @@
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 [![Ollama](https://img.shields.io/badge/powered%20by-Ollama-orange.svg)](https://ollama.com)
+[![PyPI](https://img.shields.io/pypi/v/gnix.svg)](https://pypi.org/project/gnix/)
+
+[Website](https://gnix-local.vercel.app) · [PyPI](https://pypi.org/project/gnix/) · [Dataset](https://huggingface.co/datasets/llhax/nlbash-cleaned)
 
 </div>
 
 ---
 
-Gnix converts natural language into shell commands, running entirely on your machine. No API key. No internet. No privacy concerns. Just you, your terminal, and a local AI model.
+Gnix converts natural language into shell commands, running entirely on your machine.
 
 ```
 $ gnix "find all python files modified in the last 7 days"
@@ -38,17 +39,18 @@ $ gnix "find all python files modified in the last 7 days"
 
 ## Why Gnix
 
-Every similar tool requires an API key and sends your commands to a remote server. Gnix is different.
+Most AI terminal tools send your commands to a remote server and require a paid API key. Gnix runs the model entirely on your machine — your commands never leave your computer.
 
-| Feature | ShellGPT | AI Shell | Gnix |
-|---|---|---|---|
-| Runs locally | ✘ | ✘ | ✔ |
-| No API key | ✘ | ✘ | ✔ |
-| No internet required | ✘ | ✘ | ✔ |
-| Private by default | ✘ | ✘ | ✔ |
-| Free forever | ✘ | ✘ | ✔ |
-| Safety layer | ✘ | ✘ | ✔ |
-| Bash and Zsh support | ✔ | ✔ | ✔ |
+| Feature | Other tools | Gnix |
+|---|---|---|
+| Runs locally | ✘ | ✔ |
+| No API key required | ✘ | ✔ |
+| No internet required | ✘ | ✔ |
+| Private by default | ✘ | ✔ |
+| Free forever | ✘ | ✔ |
+| Built in safety layer | ✘ | ✔ |
+| Bash and Zsh support | ✔ | ✔ |
+| Choose your own model | ✘ | ✔ |
 
 ---
 
@@ -86,7 +88,7 @@ pip install gnix
 gnix "list all files larger than 1GB"
 ```
 
-On first run, Gnix will guide you through selecting a model.
+On first run Gnix will guide you through selecting a model.
 
 ---
 
@@ -149,7 +151,7 @@ $ gnix "delete everything in the current folder"
 - Filesystem formatting — `mkfs`, `mke2fs`
 - Dangerous permissions — `chmod -R 777 /`
 - Fork bombs — `:(){ :|:& };:`
-- Remote script execution — `curl | bash`, `wget | sh`
+- Remote script execution — `| bash`, `| sh`
 - System file overwriting — `> /etc/passwd`, `> /etc/shadow`
 - System shutdown — `shutdown`, `reboot`, `halt`
 
@@ -207,7 +209,6 @@ Switch models anytime with `gnix --set-model`.
 
 ---
 
-
 ## Project Structure
 
 ```
@@ -231,6 +232,9 @@ gnix/
 │   └── test_executor.py
 ├── setup.py
 └── requirements.txt
+└── README.md
+└── LICENSE
+└── .gitignore
 ```
 
 ---
@@ -246,7 +250,7 @@ pytest tests/ -v
 
 ## Contributing
 
-Contributions are welcome. Open an issue or submit a pull request.
+Contributions are welcome. Open an issue or submit a pull request on [GitHub](https://github.com/HmadAfzal/gnix-local).
 
 ---
 
@@ -258,6 +262,6 @@ Apache 2.0 — see [LICENSE](LICENSE)
 
 <div align="center">
 
-Built by [Hmad Afzal](https://github.com/HmadAfzal) · [hmadafzal00@gmail.com](mailto:hmadafzal00@gmail.com)
+[Gnix](https://gnix-local.vercel.app) · Built by [Hmad Afzal](https://github.com/HmadAfzal) · [hmadafzal00@gmail.com](mailto:hmadafzal00@gmail.com)
 
 </div>
