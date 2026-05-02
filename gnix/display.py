@@ -2,7 +2,6 @@ import sys
 import time
 import threading
 
-
 class Color:
     RED     = "\033[91m"
     GREEN   = "\033[92m"
@@ -32,6 +31,7 @@ def bold_red(text):    return f"{Color.BOLD}{Color.RED}{text}{Color.RESET}"
 def bold_yellow(text): return f"{Color.BOLD}{Color.YELLOW}{text}{Color.RESET}"
 
 
+
 class Symbol:
     DIAMOND   = "◆"
     ARROW     = "▸"
@@ -44,7 +44,9 @@ class Symbol:
     PIPE      = "│"
 
 
+
 class Spinner:
+
     FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 
     def __init__(self, message: str = "Thinking"):
@@ -75,56 +77,65 @@ class Spinner:
             sys.stdout.flush()
 
 
-OCTOPUS = r"""
-⠀⠀⠀⠀⠀⠀⢀⣀⣠⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⣠⣶⣾⣷⣶⣄⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⢰⣿⠟⠉⠻⣿⣿⣷⠀⠀⠀⠀
-⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢷⣄⠘⠿⠀⠀⠀⢸⣿⣿⡆⠀⠀⠀
-⠀⠀⠀⠀⠈⠿⣿⣿⣿⣿⣿⣀⣸⣿⣷⣤⣴⠟⠀⠀⠀⠀⢀⣼⣿⣿⠁⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠈⠙⣛⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⣀⣀⣴⣾⣿⣿⡟⠀⠀⠀⠀
-⠀⠀⠀⢀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⣠⣤⣀⠀⠀
-⠀⠀⣴⣿⣿⣿⠿⠟⠛⠛⢛⣿⣿⣿⣿⣿⣿⣧⡈⠉⠁⠀⠀⠀⠈⠉⢻⣿⣧⠀
-⠀⣼⣿⣿⠋⠀⠀⠀⠀⢠⣾⣿⣿⠟⠉⠻⣿⣿⣿⣦⣄⠀⠀⠀⠀⠀⣸⣿⣿⠃
-⠀⣿⣿⡇⠀⠀⠀⠀⠀⣿⣿⡿⠃⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣶⣿⣿⣿⡿⠋⠀
-⠀⢿⣿⣧⡀⠀⣶⣄⠘⣿⣿⡇⠀⠀⠠⠶⣿⣶⡄⠈⠙⠛⠻⠟⠛⠛⠁⠀⠀⠀
-⠀⠈⠻⣿⣿⣿⣿⠏⠀⢻⣿⣿⣄⠀⠀⠀⣸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣶⣾⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-"""
+OCTOPUS = [
+    "⠀⠀⠀⠀⠀⠀⢀⣀⣠⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⣠⣶⣾⣷⣶⣄⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⢰⣿⠟⠉⠻⣿⣿⣷⠀⠀⠀⠀",
+    "⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢷⣄⠘⠿⠀⠀⠀⢸⣿⣿⡆⠀⠀⠀",
+    "⠀⠀⠀⠀⠈⠿⣿⣿⣿⣿⣿⣀⣸⣿⣷⣤⣴⠟⠀⠀⠀⠀⢀⣼⣿⣿⠁⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠈⠙⣛⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⣀⣀⣴⣾⣿⣿⡟⠀⠀⠀⠀",
+    "⠀⠀⠀⢀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⣠⣤⣀⠀⠀",
+    "⠀⠀⣴⣿⣿⣿⠿⠟⠛⠛⢛⣿⣿⣿⣿⣿⣿⣧⡈⠉⠁⠀⠀⠀⠈⠉⢻⣿⣧⠀",
+    "⠀⣼⣿⣿⠋⠀⠀⠀⠀⢠⣾⣿⣿⠟⠉⠻⣿⣿⣿⣦⣄⠀⠀⠀⠀⠀⣸⣿⣿⠃",
+    "⠀⣿⣿⡇⠀⠀⠀⠀⠀⣿⣿⡿⠃⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣶⣿⣿⣿⡿⠋⠀",
+    "⠀⢿⣿⣧⡀⠀⣶⣄⠘⣿⣿⡇⠀⠀⠠⠶⣿⣶⡄⠈⠙⠛⠻⠟⠛⠛⠁⠀⠀⠀",
+    "⠀⠈⠻⣿⣿⣿⣿⠏⠀⢻⣿⣿⣄⠀⠀⠀⣸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣶⣾⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+]
 
 
 def show_welcome(version: str = "0.1.0"):
-    octopus_lines = OCTOPUS.split("\n")
+    import re
 
-    info_lines = [
+    GITHUB = "https://github.com/HmadAfzal/gnix-local"
+    EMAIL  = "hmadafzal00@gmail.com"
+    D      = "- "
+    RIGHT_W = 44
+
+    def dashed(label: str, width: int) -> str:
+        fill = width - len(label) - 2
+        dash = D * (fill // 4)
+        return f"{dash} {label} {dash}"
+
+    right_lines = [
         "",
+        f"  {bold_cyan('GNIX')}  {dim('v' + version)}",
         "",
+        f"  {bold('Natural language to shell commands.')}",
+        f"  {dim('Local. Private. Free.')}",
         "",
-        bold_cyan("  GNIX"),
-        f"  {dim('v' + version)}",
+        f"  {cyan(dashed('', RIGHT_W - 4))}",
         "",
-        f"  {dim('Natural language')}",
-        f"  {dim('to shell commands.')}",
+        f"  {dim('github')}   {bold(GITHUB)}",
+        f"  {dim('mail')}     {dim(EMAIL)}",
         "",
-        f"  {dim('Star it on GitHub: https://github.com/HmadAfzal/gnix-local')}",
+        f"  {cyan(dashed('', RIGHT_W - 4))}",
         "",
-        f"  {dim('Reach out: hmadafzal00@gmail.com')}",
+        f"  {dim('set model:')}  {bold('gnix --set-model')}",
+        f"  {dim('get help:')}   {bold('gnix --help')}",
+        "",
     ]
 
-    while len(info_lines) < len(octopus_lines):
-        info_lines.append("")
+    total_rows = max(len(OCTOPUS), len(right_lines))
 
-    width = 60
     print()
-    print(f"  {cyan('╭' + Symbol.LINE * width + '╮')}")
-
-    for i, oct_line in enumerate(octopus_lines):
-        info = info_lines[i] if i < len(info_lines) else ""
-        oct_colored = cyan(oct_line.ljust(28))
-        print(f"  {cyan(Symbol.PIPE)}{oct_colored}{info}")
-
-    print(f"  {cyan('╰' + Symbol.LINE * width + '╯')}")
+    for i in range(total_rows):
+        oct_line = OCTOPUS[i] if i < len(OCTOPUS) else " " * 28
+        left     = cyan(oct_line)
+        right    = right_lines[i] if i < len(right_lines) else ""
+        print(f"  {left}  {right}")
     print()
 
 
@@ -145,32 +156,39 @@ def show_command(command: str):
     print()
 
 
+
 def show_explanation(explanation: str):
+
     print(f"  {dim(Symbol.ARROW)}  {dim(explanation)}")
     print()
 
 
 
 def prompt_confirm() -> str:
+
     return input(f"  {dim('run this command?')} {bold('[y/n]')}: ").strip().lower()
 
 
 def prompt_dangerous_confirm() -> str:
+
     return input(f"  {bold_red('type yes to confirm')}: ").strip().lower()
 
 
 def show_warning(message: str):
+
     print(f"  {bold_red(Symbol.WARN + '  WARNING')}")
     print(f"  {red(message)}")
     print()
 
 
 def show_error(message: str):
+
     print(f"\n  {bold_red(Symbol.CROSS + '  Error')}")
     print(f"  {red(message)}\n")
 
 
 def show_success(message: str):
+
     print(f"  {bold_green(Symbol.CHECK + '  ' + message)}")
 
 
@@ -180,6 +198,7 @@ def show_cancelled():
 
 def show_dry_run():
     print(f"  {dim(Symbol.ARROW)}  {dim('dry run — command was not executed.')}\n")
+
 
 
 def show_ollama_not_running():

@@ -82,7 +82,6 @@ def validate_query(query: str) -> tuple[bool, str]:
 def create_parser():
     parser = argparse.ArgumentParser(
         prog="gnix",
-        description="Gnix — Natural language to shell commands. Local. Private. Free.",
         add_help=False,
         epilog="""
             Examples:
