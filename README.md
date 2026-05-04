@@ -9,7 +9,8 @@
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 [![Ollama](https://img.shields.io/badge/powered%20by-Ollama-orange.svg)](https://ollama.com)
-[![PyPI Downloads](https://static.pepy.tech/personalized-badge/gnix?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/gnix)
+[![PyPI](https://img.shields.io/pypi/v/gnix.svg)](https://pypi.org/project/gnix/)
+
 [Website](https://gnix-local.vercel.app) · [PyPI](https://pypi.org/project/gnix/) · [Dataset](https://huggingface.co/datasets/llhax/nlbash-cleaned)
 
 </div>
